@@ -1,6 +1,6 @@
 // Header.js
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { getUserFromToken } from '../utils/auth';
 
 const Header = () => {
