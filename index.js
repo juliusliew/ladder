@@ -17,7 +17,7 @@ const io = require('socket.io')(server);
 app.use(express.json());  // Middleware to parse JSON bodies
 //app.use(cors());  // Enable Cross-Origin Request Sharing
 app.use(cors({
-    origin: "http://localhost:3000",
+    origin: ['your_netlify_frontend_url', 'http://localhost:3000'],
     methods: ["GET", "POST"],
     credentials: true
 }));
