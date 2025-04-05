@@ -38,33 +38,33 @@ function Register() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
+  
+  if (!validateForm()) {
+    return;
+  }
+  
+  setLoading(true);
+  try {
+    await axios.post(`${API_URL}/api/auth/register`, {
+      username,
+      email,
+      password,
+    });
     
-    if (!validateForm()) {
-      return;
-    }
+    setMessage("Registration successful! You can now log in.");
     
-    setLoading(true);
-    try {
-      const response = await axios.post(`${API_URL}/api/auth/register`, {
-        username,
-        email,
-        password,
-      });
-      
-      setMessage("Registration successful! You can now log in.");
-      
-      // Redirect to login page after a short delay
-      setTimeout(() => {
-        navigate('/login');
-      }, 2000);
-    } catch (error) {
-      console.error('Error registering:', error);
-      setMessage("Error registering user: " + (error.response?.data?.message || "Unknown error"));
-    } finally {
-      setLoading(false);
-    }
-  };
+    // Redirect to login page after a short delay
+    setTimeout(() => {
+      navigate('/login');
+    }, 2000);
+  } catch (error) {
+    console.error('Error registering:', error);
+    setMessage("Error registering user: " + (error.response?.data?.message || "Unknown error"));
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <div className="card mx-auto mt-4" style={{ maxWidth: '500px' }}>
