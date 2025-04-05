@@ -49,12 +49,12 @@ const Leaderboard = () => {
     };
 
     useEffect(() => {
-        fetchLeaderboard();
-        
-        const refreshInterval = setInterval(() => fetchLeaderboard(pagination.page), 30000); // Refresh every 30 seconds
+  fetchLeaderboard();
+  
+  const refreshInterval = setInterval(() => fetchLeaderboard(pagination.page), 30000);
 
-        return () => clearInterval(refreshInterval);
-    }, []);
+  return () => clearInterval(refreshInterval);
+}, [pagination.page]); // Add dependency
 
     const handlePageChange = (newPage) => {
         if (newPage >= 1 && newPage <= pagination.pages) {
