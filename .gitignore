@@ -1,0 +1,8 @@
+# Dependency directories
+node_modules/
+npm-debug.log
+.env
+.DS_Store
+
+# Build directory for your specific frontend
+tcg-ladder-frontend/build/
