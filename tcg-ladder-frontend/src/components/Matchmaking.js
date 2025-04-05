@@ -38,7 +38,7 @@ const Matchmaking = () => {
             } catch (error) {
                 console.error('Error fetching current queue:', error);
             }
-        };
+        }, [navigate, inQueue]);
 
         fetchCurrentQueue();
         
